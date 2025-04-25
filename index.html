@@ -1,352 +1,315 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>长沙问道企业管理有限公司 - 企业反舞弊专家</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/framer-motion@10/dist/motion.umd.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
-
+    <title>长沙问道企业管理有限公司 - 公司简介</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/framer-motion@10.16.4/dist/framer-motion.umd.min.js"></script>
     <style>
-        /* Custom styles (保持不变) */
+        /* Custom styles */
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: #ffffff;
+            color: #333;
             overflow-x: hidden;
         }
-        。bento-grid {
+        .bento-grid {
             display: grid;
-            gap: 1rem;
-            padding: 1rem;
-            max-width: 1200px;
-            margin: auto;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
         }
-        @media (min-width: 640px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1024px) { .bento-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        。bento-item {
-            background-color: #1a1a1a;
-            border-radius: 0.75rem;
+        @media (min-width: 640px) { /* sm: */
+            .bento-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (min-width: 1024px) { /* lg: */
+             .bento-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        .bento-item {
+            background-color: #f8f8f8;
+            border-radius: 1rem;
             padding: 1.5rem;
-            border: 1px solid #333;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+            position: relative;
             overflow: hidden;
-            /* 添加初始不可见样式，由 JS 控制 */
-            opacity: 0;
-            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+             display: flex;
+             flex-direction: column;
         }
+         .bento-item > *:not(.tech-gradient) {
+             position: relative;
+             z-index: 1;
+         }
+         .bento-item .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+         }
         .bento-item:hover {
-            transform: translateY(-5px) !important; /* Override JS transform for hover */
-            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.1);
+             transform: translateY(-5px);
         }
-
-        /* Grid span classes (保持不变) */
-        .col-span-1 { grid-column: span 1 / span 1; }
-        .col-span-2 { grid-column: span 1 / span 1; }
-        .col-span-3 { grid-column: span 1 / span 1; }
-        .col-span-4 { grid-column: span 1 / span 1; }
-        .row-span-1 { grid-row: span 1 / span 1; }
-        .row-span-2 { grid-row: span 2 / span 2; }
-
-        @media (min-width: 640px) {
-             .sm\:col-span-1 { grid-column: span 1 / span 1; }
-             .sm\:col-span-2 { grid-column: span 2 / span 2; }
-             .sm\:row-span-1 { grid-row: span 1 / span 1; }
-             .sm\:row-span-2 { grid-row: span 2 / span 2; }
-        }
-        @media (min-width: 1024px) {
-            .lg\:col-span-1 { grid-column: span 1 / span 1; }
-            .lg\:col-span-2 { grid-column: span 2 / span 2; }
-            .lg\:col-span-3 { grid-column: span 3 / span 3; }
-            .lg\:col-span-4 { grid-column: span 4 / span 4; }
-            .lg\:row-span-1 { grid-row: span 1 / span 1; }
-            .lg\:row-span-2 { grid-row: span 2 / span 2; }
-        }
-
-        /* Highlight and text styles (保持不变) */
-        .highlight-orange { color: #f97316; }
-        .bg-highlight-orange-gradient { background: linear-gradient(to bottom, rgba(249, 115, 22, 0.3), rgba(249, 115, 22, 0.1)); }
-        .bg-highlight-orange { background-color: #f97316; }
-        .border-highlight-orange { border-color: #f97316; }
-        .text-super-large { font-size: 4rem; line-height: 1; font-weight: 700; }
-        @media (min-width: 768px) { .text-super-large { font-size: 6rem; } }
-        .icon-outline { color: #f97316; font-size: 2.5rem; }
-
-        /* Header specific initial styles for animation */
-        .header-content {
-             opacity: 0;
-             transform: scale(0.8);
-        }
-        .header-bg-gradient {
-             opacity: 0;
-             transform: translateY(-50px);
-        }
-
+        .highlight-blue { color: #2563eb; }
+        .bg-highlight-blue { background-color: #2563eb; }
+        .bg-highlight-blue-light { background-color: #dbeafe; }
+        .border-highlight-blue { border-color: #2563eb; }
+        .text-zh-large { font-size: 2.5rem; font-weight: 700; line-height: 1.2; color: #1f2937; }
+        @media (min-width: 768px) { .text-zh-large { font-size: 3.5rem; } }
+        .text-en-small { font-size: 0.875rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
+        .text-stat-large { font-size: 4rem; font-weight: 800; line-height: 1; color: #2563eb; }
+        @media (min-width: 768px) { .text-stat-large { font-size: 6rem; } }
+        .tech-gradient { background: linear-gradient(to top, rgba(37, 99, 235, 0.3), rgba(37, 99, 235, 0)); position: absolute; bottom: 0; left: 0; right: 0; height: 50%; z-index: 0; pointer-events: none; }
+        .line-icon { font-size: 3rem; color: #2563eb; margin-bottom: 1rem; }
+        .header-icon { font-size: 4rem; color: #2563eb; margin-bottom: 1.5rem; }
+        @media (min-width: 768px) { .header-icon { font-size: 5rem; } }
+        .team-member-card { background-color: #fff; border-radius: 0.5rem; padding: 1rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); display: flex; flex-direction: column; height: 100%; }
+        .team-member-card .description { flex-grow: 1; margin-top: 0.5rem; }
     </style>
 </head>
-<body class="bg-black text-white">
+<body class="font-sans">
 
-    <header class="py-16 px-4 text-center relative overflow-hidden">
-         <div class="header-bg-gradient absolute inset-0 bg-highlight-orange-gradient opacity-30 blur-3xl" aria-hidden="true"></div>
-         <div class="header-content relative z-10">
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-2">
-                <span class="highlight-orange">长沙问道</span>企业管理
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-400 mb-4">CHANGSHA WENDAO ENTERPRISE MANAGEMENT</p>
-            <p class="text-2xl sm:text-3xl font-bold">企业<span class="highlight-orange">反舞弊</span>治理专家</p>
-            <p class="text-sm text-gray-500 mt-1">ANTI-FRAUD & COMPLIANCE SPECIALISTS</p>
-        </div>
-    </header>
+    <div id="app" class="container mx-auto">
 
-    <main class="bento-grid">
+        <motion.div
+            class="text-center p-10 md:p-20 min-h-[60vh] flex flex-col justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+        >
+            <i class="fas fa-briefcase header-icon"></i>
+            <h1 class="text-zh-large mb-2">长沙问道企业管理有限公司</h1>
+            <p class="text-en-small">CHANGSHA WENDAO ENTERPRISE MANAGEMENT CO., LTD.</p>
+            <div class="mt-6 text-xl md:text-2xl font-semibold text-gray-700 flex justify-center space-x-4">
+                <span>诚信</span> <span class="highlight-blue">|</span>
+                <span>高效</span> <span class="highlight-blue">|</span>
+                <span>专业</span>
+            </div>
+             <p class="mt-4 text-gray-500 max-w-2xl mx-auto">
+                 专注于全国民营企业反舞弊治理的专业咨询机构，助力企业健康发展。
+             </p>
+        </motion.div>
 
-        <div class="bento-item sm:col-span-2 lg:col-span-2 lg:row-span-1" data-motion-id="bento-item-1">
-            <i class="fas fa-building icon-outline mb-4"></i>
-            <h2 class="text-2xl font-bold mb-2">公司<span class="highlight-orange">基本情况</span></h2>
-            <p class="text-sm text-gray-400 mb-4 uppercase">BASIC INFORMATION</p>
-            <p class="text-gray-300 text-base leading-relaxed">
-                专注于全国民营企业反舞弊治理的专业咨询机构。团队由国际注册反舞弊师、高级审计师、律师及公检法、上市公司精英组成。经验丰富，资源广泛，成功处理大量职务侵占、受贿、挪用资金案件。
-            </p>
-        </div>
+        <div class="bento-grid">
 
-        <div class="bento-item flex flex-col justify-center items-center text-center bg-highlight-orange-gradient sm:col-span-1 lg:col-span-1" data-motion-id="bento-item-2">
-            <i class="fas fa-gavel icon-outline mb-3"></i>
-            <div class="text-super-large highlight-orange">150+</div>
-            <p class="text-lg font-bold mt-1">刑事处理</p>
-            <p class="text-xs text-gray-400 uppercase">CRIMINAL CASES HANDLED</p>
-        </div>
-
-        <div class="bento-item flex flex-col justify-center items-center text-center bg-highlight-orange-gradient sm:col-span-1 lg:col-span-1" data-motion-id="bento-item-3">
-             <i class="fas fa-money-bill-wave icon-outline mb-3"></i>
-            <div class="text-super-large highlight-orange">数亿<span class="text-4xl">元</span></div>
-            <p class="text-lg font-bold mt-1">挽回损失</p>
-            <p class="text-xs text-gray-400 uppercase">ECONOMIC LOSSES RECOVERED</p>
-        </div>
-
-
-        <div class="bento-item sm:col-span-2 lg:col-span-4" data-motion-id="bento-item-4">
-            <h2 class="text-2xl font-bold mb-2">主营<span class="highlight-orange">业务</span></h2>
-            <p class="text-sm text-gray-400 mb-6 uppercase">MAIN BUSINESS ACTIVITIES</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="text-center p-4 border border-gray-700 rounded-lg hover:border-orange-500/50 transition-colors">
-                    <i class="fas fa-user-secret icon-outline mb-3 text-2xl"></i>
-                    <h3 class="text-lg font-semibold mb-1">反舞弊调查</h3>
-                    <p class="text-xs text-gray-400">ANTI-FRAUD INVESTIGATION</p>
-                    <p class="text-sm text-gray-300 mt-2">调查员工贪腐、贿赂、挪用等行为，追赃挽损。</p>
+            <motion.div
+                class="bento-item sm:col-span-2 lg:col-span-2 bg-highlight-blue-light"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6 }}
+            >
+                 <div class="content-wrapper">
+                    <i class="fas fa-building line-icon"></i>
+                    <h2 class="text-zh-large !text-3xl mb-2">公司简介</h2>
+                    <p class="text-en-small">BASIC INFORMATION</p>
+                    <p class="mt-4 text-gray-700">
+                        长沙问道企业管理有限公司是一家专注于全国民营企业反舞弊治理的专业咨询机构，团队成员由国际注册反舞弊师、高级审计师、会计师、律师以及来自公检法系统、上市公司的业务精英组成，社会资源广，实战经验丰富。
+                    </p>
+                    <p class="mt-2 text-gray-700">
+                        成功办理了大量民营企业职务侵占、非国家工作人员受贿、挪用资金等类型案件，刑事处理人员超150人，挽回直接经济损失数亿元。
+                    </p>
                 </div>
-                 <div class="text-center p-4 border border-gray-700 rounded-lg hover:border-orange-500/50 transition-colors">
-                    <i class="fas fa-lock icon-outline mb-3 text-2xl"></i>
-                    <h3 class="text-lg font-semibold mb-1">商业秘密保护</h3>
-                    <p class="text-xs text-gray-400">TRADE SECRET PROTECTION</p>
-                    <p class="text-sm text-gray-300 mt-2">调查处理携秘跳槽、泄露客户名单/技术等行为。</p>
-                </div>
-                 <div class="text-center p-4 border border-gray-700 rounded-lg hover:border-orange-500/50 transition-colors">
-                    <i class="fas fa-shield-alt icon-outline mb-3 text-2xl"></i>
-                    <h3 class="text-lg font-semibold mb-1">监察体系建设</h3>
-                     <p class="text-xs text-gray-400">COMPLIANCE SYSTEM BUILDING</p>
-                    <p class="text-sm text-gray-300 mt-2">完善监察、廉洁、财务等制度，堵塞漏洞，防范风险。</p>
-                </div>
-            </div>
-        </div>
+                <div class="tech-gradient"></div>
+            </motion.div>
+            <motion.div
+                class="bento-item"
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 viewport={{ once: true, amount: 0.5 }}
+                 transition={{ duration: 0.5, delay: 0.1 }}
+            >
+                 <div class="content-wrapper">
+                     <i class="fas fa-search-dollar line-icon"></i>
+                     <h3 class="text-2xl font-bold mb-1">反舞弊调查</h3>
+                     <p class="text-en-small">ANTI-FRAUD INVESTIGATION</p>
+                     <p class="mt-3 text-sm text-gray-600">
+                         对员工侵害企业权益的行为（贪腐、贿赂、挪用等）进行调查取证，通过内部处理或刑事控告手段为企业追赃挽损。
+                     </p>
+                 </div>
+            </motion.div>
+            <motion.div
+                class="bento-item"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                 <div class="content-wrapper">
+                     <i class="fas fa-shield-alt line-icon"></i>
+                     <h3 class="text-2xl font-bold mb-1">商业秘密保护</h3>
+                     <p class="text-en-small">TRADE SECRET PROTECTION</p>
+                     <p class="mt-3 text-sm text-gray-600">
+                         对侵害商业秘密的行为（携秘跳槽、出售客户名单、技术图纸等）调查取证，通过刑事控告或诉讼手段打击侵权单位并追赃挽损。
+                     </p>
+                 </div>
+            </motion.div>
 
-        <div class="bento-item sm:col-span-2 lg:col-span-2" data-motion-id="bento-item-5">
-            <i class="fas fa-users icon-outline mb-4"></i>
-            <h2 class="text-2xl font-bold mb-2">核心<span class="highlight-orange">团队</span></h2>
-            <p class="text-sm text-gray-400 mb-4 uppercase">CORE TEAM MEMBERS</p>
-            <div class="space-y-3">
-                <p><strong class="highlight-orange">陈辉:</strong> 原公安警官、纪监委办案组长，审讯专家。</p>
-                <p><strong class="highlight-orange">周彦远:</strong> 国际注册反舞弊师、高级审计师，原上市公司监察部长。</p>
-                <p><strong class="highlight-orange">单志才 (CEO):</strong> 行业知名监察审计专家，原大型企业监察部长。</p>
-                <p><strong class="highlight-orange">刘中文:</strong> 律师，原检察官，擅长刑事控告、商业秘密保护。</p>
-            </div>
-        </div>
+            <motion.div
+                class="bento-item sm:col-span-2 lg:col-span-2"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+            >
+                 <div class="content-wrapper">
+                    <i class="fas fa-handshake line-icon"></i>
+                    <h2 class="text-zh-large !text-3xl mb-2">服务承诺</h2>
+                    <p class="text-en-small">SERVICE COMMITMENT</p>
+                     <p class="mt-4 text-gray-600 font-semibold text-lg">坚持“三不”原则：</p>
+                     <ul class="mt-2 list-none space-y-2">
+                         <li class="flex items-start">
+                             <i class="fas fa-check-circle highlight-blue mt-1 mr-2 flex-shrink-0"></i>
+                             <span class="text-gray-700">前期免费体检，不收取任何费用（含案件未成功办理不收取任何费用）。</span>
+                         </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt highlight-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span class="text-gray-700">不接触敏感信息，对甲方信息绝对保密。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-gavel highlight-blue mt-1 mr-2 flex-shrink-0"></i>
+                            <span class="text-gray-700">不影响公司决策，经调查发现员工违法犯罪事实，由甲方决定是否处理。</span>
+                        </li>
+                     </ul>
+                     <p class="mt-auto pt-4 text-gray-800 font-semibold">"助力企业发展是我们的追求，恪守职业操守是我们的底线"</p>
+                 </div>
+            </motion.div>
+            <motion.div
+                class="bento-item"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+            >
+                 <div class="content-wrapper">
+                     <i class="fas fa-cogs line-icon"></i>
+                     <h3 class="text-2xl font-bold mb-1">监察体系建设</h3>
+                     <p class="text-en-small">SUPERVISION SYSTEM CONSTRUCTION</p>
+                     <p class="mt-3 text-sm text-gray-600">
+                         对公司监察、廉洁、财务、考勤、购销、投诉举报等相关制度进行设置（完善），堵塞漏洞，防范法律风险。
+                     </p>
+                 </div>
+            </motion.div>
+            <motion.div
+                 class="bento-item bg-highlight-blue-light text-center"
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, amount: 0.5 }}
+                 transition={{ duration: 0.6, delay: 0.1 }}
+             >
+                  <div class="content-wrapper justify-center items-center">
+                     <div class="text-stat-large">150+</div>
+                     <p class="text-xl font-semibold mt-2 text-gray-800">刑事处理人员</p>
+                     <p class="text-en-small">PERSONNEL HANDLED CRIMINALLY</p>
+                 </div>
+             </motion.div>
 
-        <div class="bento-item sm:col-span-2 lg:col-span-2 lg:row-span-2 flex flex-col justify-between bg-highlight-orange-gradient" data-motion-id="bento-item-6">
-            <div>
-                <i class="fas fa-briefcase icon-outline mb-4"></i>
-                <h2 class="text-2xl font-bold mb-2">成功<span class="highlight-orange">案例</span></h2>
-                <p class="text-sm text-gray-400 mb-4 uppercase">SUCCESSFUL CASES</p>
-                <p class="text-lg font-semibold mb-2 highlight-orange">案例亮点：贸易公司职务侵占/虚开专票案</p>
-                <p class="text-gray-300 text-base mb-4">
-                    负责人利用职务之便，虚增交易环节，底价采购后销售。同时存在虚开增值税专用发票行为。
-                </p>
-            </div>
-            <div class="mt-auto text-center">
-                 <div class="text-super-large highlight-orange">6000<span class="text-4xl">万+</span></div>
-                 <p class="text-lg font-bold mt-1">涉案金额</p>
-                 <p class="text-xs text-gray-400 uppercase">CASE VALUE EXCEEDING 60M</p>
-                 <p class="text-sm text-gray-300 mt-3"><i class="fas fa-user-times mr-1"></i>多人被刑事拘留</p>
-            </div>
-        </div>
+            <motion.div
+                class="bento-item sm:col-span-2 lg:col-span-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+            >
+                 <div class="content-wrapper">
+                    <div class="flex justify-between items-start mb-4">
+                         <div>
+                             <h3 class="text-zh-large !text-3xl mb-1">精英团队</h3>
+                             <p class="text-en-small">OUR EXPERTS</p>
+                         </div>
+                         <i class="fas fa-users line-icon !text-4xl !mb-0 text-blue-300"></i>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
+                         <motion.div class="team-member-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: 0.1 }}>
+                            <h4 class="font-bold text-lg">单志才</h4> <p class="text-sm highlight-blue font-semibold mb-1">CEO</p>
+                            <p class="text-xs text-gray-600 leading-relaxed description">行业知名监察审计专家，某超大型上市公司原监察部部长，某大型500强企业监察部部长，从事监察审计工作二十余年，办理大量职务犯罪案件，指导多家企业搭建监审体系，为企业挽回直接经济损失数亿元。</p>
+                        </motion.div>
+                        <motion.div class="team-member-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: 0.2 }}>
+                            <h4 class="font-bold text-lg">陈辉</h4> <p class="text-sm highlight-blue font-semibold mb-1">反舞弊专家 / Senior Investigator</p>
+                            <p class="text-xs text-gray-600 leading-relaxed description">湖南某公安机关原警官， 某纪监委原办案组长， 公安部原审讯专家库人才， 专耕企业反舞弊领域和廉洁文化建设， 成功办理了多起职务侵占、 非国家工作人员受贿等民营企业职务犯罪案件。</p>
+                        </motion.div>
+                        <motion.div class="team-member-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: 0.3 }}>
+                            <h4 class="font-bold text-lg">周彦远</h4> <p class="text-sm highlight-blue font-semibold mb-1">内控与反舞弊专家 / CFE</p>
+                             <p class="text-xs text-gray-600 leading-relaxed description">国际注册反舞弊师、 高级审计师， 某上市公司原监察部部长， 长期致力于公司治理、 内部审计、 内部控制、风险管理、反舞弊的研究与实践， 主导完成了大量审计项目， 成功查办大量舞弊案件。</p>
+                        </motion.div>
+                         <motion.div class="team-member-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: 0.4 }}>
+                            <h4 class="font-bold text-lg">刘中文</h4> <p class="text-sm highlight-blue font-semibold mb-1">律师 / Former Prosecutor</p>
+                             <p class="text-xs text-gray-600 leading-relaxed description">广东诚公律师事务所律师， 湖南某市人民检察院原检察官， 从事刑事案件侦查、审查起诉工作十多年， 曾办理过大量经济、职务类刑事案件， 下海后， 致力于企业反舞弊刑事控告、 商业秘密保护等工作， 多起案件被评为全省优秀案件。</p>
+                        </motion.div>
+                         <motion.div class="team-member-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: 0.5 }}>
+                            <h4 class="font-bold text-lg">廖祖祥</h4> <p class="text-sm highlight-blue font-semibold mb-1">商务总监</p>
+                            <p class="text-xs text-gray-600 leading-relaxed description">原湖南某建材集团公司总经理, 建材行业知名专家, 法律工作者, 资深记者。</p>
+                        </motion.div>
+                    </div>
+                 </div>
+            </motion.div>
+            <motion.div class="bento-item" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: 0.1 }}>
+                 <div class="content-wrapper">
+                    <h3 class="text-xl font-bold mb-1">成功案例 <span class="text-sm font-normal text-gray-500">1/4</span></h3> <p class="text-en-small">CASE STUDY HIGHLIGHT</p>
+                    <p class="mt-3 text-sm text-gray-600"> <strong>某生产型企业员工职务侵占、非国家工作人员受贿案：</strong> 查处多名采购人员侵占、受贿，总计退赔 <strong class="highlight-blue">600余万元</strong>。 </p>
+                 </div>
+            </motion.div>
+            <motion.div class="bento-item" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: 0.2 }}>
+                 <div class="content-wrapper">
+                    <h3 class="text-xl font-bold mb-1">成功案例 <span class="text-sm font-normal text-gray-500">2/4</span></h3> <p class="text-en-small">CASE STUDY HIGHLIGHT</p>
+                    <p class="mt-3 text-sm text-gray-600"> <strong>某酒店集团员工职务侵占、非国家工作人员受贿窝案：</strong> 财务、采购等多部门人员涉案，财务总监涉案超 <strong class="highlight-blue">50万元</strong>，采购经理涉案超 <strong class="highlight-blue">30万元</strong>。 </p>
+                 </div>
+            </motion.div>
+             <motion.div class="bento-item" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: 0.3 }}>
+                 <div class="content-wrapper">
+                    <h3 class="text-xl font-bold mb-1">成功案例 <span class="text-sm font-normal text-gray-500">3/4</span></h3> <p class="text-en-small">CASE STUDY HIGHLIGHT</p>
+                    <p class="mt-3 text-sm text-gray-600"> <strong>某贸易公司员工职务侵占、虚开专票案：</strong> 负责人及销售利用职务之便，虚增交易环节牟利，并虚开增值税发票，涉案金额超 <strong class="highlight-blue">6000余万元</strong>，多人被刑拘。 </p>
+                 </div>
+            </motion.div>
+            <motion.div class="bento-item" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: 0.4 }}>
+                 <div class="content-wrapper">
+                    <h3 class="text-xl font-bold mb-1">成功案例 <span class="text-sm font-normal text-gray-500">4/4</span></h3> <p class="text-en-small">CASE STUDY HIGHLIGHT</p>
+                    <p class="mt-3 text-sm text-gray-600"> <strong>湖南某科技股份公司技术秘密被侵犯案：</strong> 销售员勾结竞争对手挖走技术员窃取核心图纸，造成损失 <strong class="highlight-blue">150.1万元</strong>，多人构成侵犯商业秘密罪被判刑。 </p>
+                 </div>
+            </motion.div>
 
-        <div class="bento-item sm:col-span-2 lg:col-span-2" data-motion-id="bento-item-7">
-            <i class="fas fa-handshake icon-outline mb-4"></i>
-            <h2 class="text-2xl font-bold mb-2">服务<span class="highlight-orange">承诺</span></h2>
-            <p class="text-sm text-gray-400 mb-4 uppercase">SERVICE COMMITMENT</p>
-            <ul class="list-none space-y-3 text-gray-300">
-                <li class="flex items-start">
-                    <i class="fas fa-check-circle highlight-orange mt-1 mr-2"></i>
-                    <span><strong class="highlight-orange">免费体检:</strong> 前期不成功不收费。</span>
-                </li>
-                 <li class="flex items-start">
-                    <i class="fas fa-shield-halved highlight-orange mt-1 mr-2"></i>
-                    <span><strong class="highlight-orange">绝对保密:</strong> 不接触敏感信息，保护甲方隐私。</span>
-                </li>
-                 <li class="flex items-start">
-                    <i class="fas fa-balance-scale highlight-orange mt-1 mr-2"></i>
-                    <span><strong class="highlight-orange">尊重决策:</strong> 调查结果由甲方决定如何处理。</span>
-                </li>
-            </ul>
-             <p class="text-sm text-gray-500 mt-4 italic">恪守职业操守，助力企业发展。</p>
-        </div>
+             <motion.div
+                class="bento-item bg-highlight-blue text-white text-center sm:col-span-2 lg:col-span-2" initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+            >
+                 <div class="content-wrapper justify-center items-center">
+                    <div class="text-stat-large !text-white">数亿</div>
+                    <p class="text-xl font-semibold mt-2">直接经济损失挽回 (元)</p>
+                    <p class="text-en-small !text-blue-200">DIRECT ECONOMIC LOSSES RECOVERED (CNY)</p>
+                 </div>
+            </motion.div>
+             <motion.div
+                class="bento-item text-center sm:col-span-2 lg:col-span-2" initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 viewport={{ once: true, amount: 0.5 }}
+                 transition={{ duration: 0.7, delay: 0.2 }}
+            >
+                 <div class="content-wrapper justify-center items-center">
+                     <i class="fas fa-phone-alt line-icon"></i>
+                     <h3 class="text-2xl font-bold mb-1">联系我们</h3>
+                     <p class="text-en-small">CONTACT US</p>
+                     <p class="mt-3 text-3xl font-bold highlight-blue tracking-wider">
+                        134 6777 7737
+                     </p>
+                     <p class="mt-1 text-gray-500">廖祖祥</p>
+                     <p class="mt-2 text-sm text-gray-500">
+                         <i class="fas fa-map-marker-alt mr-1"></i> 湖南 长沙
+                     </p>
+                 </div>
+            </motion.div>
 
-        <div class="bento-item sm:col-span-2 lg:col-span-2 flex flex-col items-center justify-center text-center" data-motion-id="bento-item-8">
-             <i class="fas fa-phone-alt icon-outline mb-4"></i>
-            <h2 class="text-2xl font-bold mb-2">联系<span class="highlight-orange">我们</span></h2>
-            <p class="text-sm text-gray-400 mb-4 uppercase">CONTACT US</p>
-            <p class="text-3xl font-bold highlight-orange mb-2">134 6777 7737</p>
-            <p class="text-gray-300 mb-4">长沙问道企业管理有限公司</p>
-            <p class="text-gray-400 text-sm">地址: 湖南长沙</p>
-            <div class="mt-4 text-gray-500">
-                <i class="fab fa-weixin text-4xl"></i>
-                <p class="text-xs mt-1">扫码添加微信 (Scan QR for WeChat)</p>
-            </div>
-        </div>
+        </div> <footer class="text-center p-6 mt-10 text-gray-500 text-sm">
+             © 2025 长沙问道企业管理有限公司. All Rights Reserved. | Design inspired by user request.
+         </footer>
 
-        <div class="bento-item sm:col-span-1 lg:col-span-1 flex flex-col items-center justify-center text-center" data-motion-id="bento-item-9">
-             <i class="fas fa-hotel icon-outline mb-3"></i>
-             <p class="text-base font-semibold highlight-orange">案例二</p>
-             <p class="text-xs text-gray-400 uppercase">HOTEL GROUP CASE</p>
-             <p class="text-sm text-gray-300 mt-2">酒店集团员工职务侵占、受贿窝案</p>
-         </div>
-         <div class="bento-item sm:col-span-1 lg:col-span-1 flex flex-col items-center justify-center text-center" data-motion-id="bento-item-10">
-             <i class="fas fa-microchip icon-outline mb-3"></i>
-             <p class="text-base font-semibold highlight-orange">案例四</p>
-             <p class="text-xs text-gray-400 uppercase">TECH COMPANY CASE</p>
-             <p class="text-sm text-gray-300 mt-2">科技公司技术秘密被侵犯案 (省十佳案例)</p>
-         </div>
-
-    </main>
-
-    <footer class="text-center py-8 px-4 mt-12 border-t border-gray-800">
-        <p class="text-gray-500 text-sm">&copy; 2025 长沙问道企业管理有限公司. All Rights Reserved.</p>
-         <p class="text-xs text-gray-600 mt-1">诚信 | 高效 | 专业</p>
-    </footer>
-
-    <script>
-        // ** 改动: 使用 window.onload 替代 DOMContentLoaded **
-        // 确保在包括脚本在内的所有资源加载完成后执行
-        window.onload = () => {
-            // 检查 motion 对象是否存在
-            if (typeof motion === 'undefined') {
-                console.error('Framer Motion library not loaded correctly.');
-                // 如果库未加载，停止执行后续动画代码
-                // 可以考虑在此处添加一些用户提示或回退机制
-                // Hide elements meant to be animated if library fails
-                 document.querySelectorAll('.bento-item, .header-content, .header-bg-gradient').forEach(el => {
-                     el.style.opacity = '1'; // Make them visible without animation
-                     el.style.transform = 'none'; // Reset transform
-                 });
-                return;
-            }
-
-            // 从 motion 中解构需要的函数 (现在可以安全使用 motion)
-            const { animate } = motion;
-
-            // --- Header Animation ---
-            // Animate background gradient
-            animate('.header-bg-gradient',
-                { opacity: 1, y: 0 }, // Target state
-                { duration: 0.8, ease: "easeOut" } // Transition options
-            );
-
-            // Animate header content
-            animate('.header-content',
-                { opacity: 1, scale: 1 },
-                { duration: 0.8, delay: 0.2, ease: "easeOut" }
-            );
-
-
-            // --- Bento Grid Item Animation ---
-            // 选择所有 bento-item 元素
-            const items = document.querySelectorAll('.bento-item');
-
-            // --- Intersection Observer for Scroll-Triggered Animations ---
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const item = entry.target;
-                        const index = Array.from(items).indexOf(item); // Get index for stagger
-
-                        // 定义目标状态
-                        const targetState = { opacity: 1, y: 0 };
-                        const scaleItems = ['bento-item-2', 'bento-item-3', 'bento-item-6'];
-                        let initialTransform = 'translateY(20px)'; // Default initial transform
-
-                        if (scaleItems.includes(item.dataset.motionId)) {
-                             targetState.scale = 1;
-                             initialTransform = 'translateY(20px) scale(0.8)'; // Initial transform for scale items
-                             // Ensure initial style is applied before animation starts if not already
-                             if (item.style.transform !== initialTransform) {
-                                 item.style.transform = initialTransform;
-                             }
-                             // Animate from initial state set in CSS/JS
-                             animate(item, targetState, {
-                                 delay: index * 0.05, // Stagger effect
-                                 duration: 0.5,
-                                 ease: 'easeOut'
-                             });
-                        } else {
-                             // Ensure initial style is applied before animation starts if not already
-                             if (item.style.transform !== initialTransform) {
-                                  item.style.transform = initialTransform;
-                             }
-                             // Animate from initial state set in CSS
-                             animate(item, targetState, {
-                                 delay: index * 0.05, // Stagger effect
-                                 duration: 0.5,
-                                 ease: 'easeOut'
-                             });
-                        }
-
-                        // 动画触发后停止观察该元素
-                        obs.unobserve(item);
-                    }
-                });
-            }, {
-                threshold: 0.3, // 元素可见 30% 时触发
-            });
-
-            // 让 observer 观察所有 bento items
-            items.forEach(item => {
-                // Apply initial scale for specific items here as well
-                const scaleItems = ['bento-item-2', 'bento-item-3', 'bento-item-6'];
-                 if (scaleItems.includes(item.dataset.motionId)) {
-                     item.style.transform = 'translateY(20px) scale(0.8)';
-                 }
-                observer.observe(item);
-            });
-
-
-            // Add smooth scrolling if desired (保持不变)
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            console.log("Framer Motion animations applied via JS API after window.onload.");
-        }; // End of window.onload
-
+    </div> <script>
+        // Framer Motion script (remains the same)
+        // const motion = window.motion;
     </script>
 
 </body>
