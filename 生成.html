@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长沙问道企业管理有限公司 - 企业反舞弊专家</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/framer-motion@10/dist/motion.umd.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles (保持不变) */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            overflow-x: hidden;
+        }
+        .bento-grid {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: auto;
+            grid-template-columns: repeat(1, 1fr);
+        }
+        @media (min-width: 640px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .bento-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .bento-item {
+            background-color: #1a1a1a;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            /* 添加初始不可见样式，由 JS 控制 */
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px) !important; /* Override JS transform for hover */
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.1);
+        }
+
+        /* Grid span classes (保持不变) */
+        .col-span-1 { grid-column: span 1 / span 1; }
+        .col-span-2 { grid-column: span 1 / span 1; }
+        .col-span-3 { grid-column: span 1 / span 1; }
+        .col-span-4 { grid-column: span 1 / span 1; }
+        .row-span-1 { grid-row: span 1 / span 1; }
+        .row-span-2 { grid-row: span 2 / span 2; }
+
+        @media (min-width: 640px) {
+             .sm\:col-span-1 { grid-column: span 1 / span 1; }
+             .sm\:col-span-2 { grid-column: span 2 / span 2; }
+             .sm\:row-span-1 { grid-row: span 1 / span 1; }
+             .sm\:row-span-2 { grid-row: span 2 / span 2; }
+        }
+        @media (min-width: 1024px) {
+            .lg\:col-span-1 { grid-column: span 1 / span 1; }
+            .lg\:col-span-2 { grid-column: span 2 / span 2; }
+            .lg\:col-span-3 { grid-column: span 3 / span 3; }
+            .lg\:col-span-4 { grid-column: span 4 / span 4; }
+            .lg\:row-span-1 { grid-row: span 1 / span 1; }
+            .lg\:row-span-2 { grid-row: span 2 / span 2; }
+        }
+
+        /* Highlight and text styles (保持不变) */
+        .highlight-orange { color: #f97316; }
+        .bg-highlight-orange-gradient { background: linear-gradient(to bottom, rgba(249, 115, 22, 0.3), rgba(249, 115, 22, 0.1)); }
+        .bg-highlight-orange { background-color: #f97316; }
+        .border-highlight-orange { border-color: #f97316; }
+        .text-super-large { font-size: 4rem; line-height: 1; font-weight: 700; }
+        @media (min-width: 768px) { .text-super-large { font-size: 6rem; } }
+        .icon-outline { color: #f97316; font-size: 2.5rem; }
+
+        /* Header specific initial styles for animation */
+        .header-content {
+             opacity: 0;
+             transform: scale(0.8);
+        }
+        .header-bg-gradient {
+             opacity: 0;
+             transform: translateY(-50px);
+        }
+
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <header class="py-16 px-4 text-center relative overflow-hidden">
+         <div class="header-bg-gradient absolute inset-0 bg-highlight-orange-gradient opacity-30 blur-3xl" aria-hidden="true"></div>
+         <div class="header-content relative z-10">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-2">
+                <span class="highlight-orange">长沙问道</span>企业管理
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 mb-4">CHANGSHA WENDAO ENTERPRISE MANAGEMENT</p>
+            <p class="text-2xl sm:text-3xl font-bold">企业<span class="highlight-orange">反舞弊</span>治理专家</p>
+            <p class="text-sm text-gray-500 mt-1">ANTI-FRAUD & COMPLIANCE SPECIALISTS</p>
+        </div>
+    </header>
+
+    <main class="bento-grid">
+
+        <div class="bento-item sm:col-span-2 lg:col-span-2 lg:row-span-1" data-motion-id="bento-item-1">
+            <i class="fas fa-building icon-outline mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">公司<span class="highlight-orange">基本情况</span></h2>
+            <p class="text-sm text-gray-400 mb-4 uppercase">BASIC INFORMATION</p>
+            <p class="text-gray-300 text-base leading-relaxed">
+                专注于全国民营企业反舞弊治理的专业咨询机构。团队由国际注册反舞弊师、高级审计师、律师及公检法、上市公司精英组成。经验丰富，资源广泛，成功处理大量职务侵占、受贿、挪用资金案件。
+            </p>
+        </div>
+
+        <div class="bento-item flex flex-col justify-center items-center text-center bg-highlight-orange-gradient sm:col-span-1 lg:col-span-1" data-motion-id="bento-item-2">
+            <i class="fas fa-gavel icon-outline mb-3"></i>
+            <div class="text-super-large highlight-orange">150+</div>
+            <p class="text-lg font-bold mt-1">刑事处理</p>
+            <p class="text-xs text-gray-400 uppercase">CRIMINAL CASES HANDLED</p>
+        </div>
+
+        <div class="bento-item flex flex-col justify-center items-center text-center bg-highlight-orange-gradient sm:col-span-1 lg:col-span-1" data-motion-id="bento-item-3">
+             <i class="fas fa-money-bill-wave icon-outline mb-3"></i>
+            <div class="text-super-large highlight-orange">数亿<span class="text-4xl">元</span></div>
+            <p class="text-lg font-bold mt-1">挽回损失</p>
+            <p class="text-xs text-gray-400 uppercase">ECONOMIC LOSSES RECOVERED</p>
+        </div>
+
+
+        <div class="bento-item sm:col-span-2 lg:col-span-4" data-motion-id="bento-item-4">
+            <h2 class="text-2xl font-bold mb-2">主营<span class="highlight-orange">业务</span></h2>
+            <p class="text-sm text-gray-400 mb-6 uppercase">MAIN BUSINESS ACTIVITIES</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-4 border border-gray-700 rounded-lg hover:border-orange-500/50 transition-colors">
+                    <i class="fas fa-user-secret icon-outline mb-3 text-2xl"></i>
+                    <h3 class="text-lg font-semibold mb-1">反舞弊调查</h3>
+                    <p class="text-xs text-gray-400">ANTI-FRAUD INVESTIGATION</p>
+                    <p class="text-sm text-gray-300 mt-2">调查员工贪腐、贿赂、挪用等行为，追赃挽损。</p>
+                </div>
+                 <div class="text-center p-4 border border-gray-700 rounded-lg hover:border-orange-500/50 transition-colors">
+                    <i class="fas fa-lock icon-outline mb-3 text-2xl"></i>
+                    <h3 class="text-lg font-semibold mb-1">商业秘密保护</h3>
+                    <p class="text-xs text-gray-400">TRADE SECRET PROTECTION</p>
+                    <p class="text-sm text-gray-300 mt-2">调查处理携秘跳槽、泄露客户名单/技术等行为。</p>
+                </div>
+                 <div class="text-center p-4 border border-gray-700 rounded-lg hover:border-orange-500/50 transition-colors">
+                    <i class="fas fa-shield-alt icon-outline mb-3 text-2xl"></i>
+                    <h3 class="text-lg font-semibold mb-1">监察体系建设</h3>
+                     <p class="text-xs text-gray-400">COMPLIANCE SYSTEM BUILDING</p>
+                    <p class="text-sm text-gray-300 mt-2">完善监察、廉洁、财务等制度，堵塞漏洞，防范风险。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-item sm:col-span-2 lg:col-span-2" data-motion-id="bento-item-5">
+            <i class="fas fa-users icon-outline mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">核心<span class="highlight-orange">团队</span></h2>
+            <p class="text-sm text-gray-400 mb-4 uppercase">CORE TEAM MEMBERS</p>
+            <div class="space-y-3">
+                <p><strong class="highlight-orange">陈辉:</strong> 原公安警官、纪监委办案组长，审讯专家。</p>
+                <p><strong class="highlight-orange">周彦远:</strong> 国际注册反舞弊师、高级审计师，原上市公司监察部长。</p>
+                <p><strong class="highlight-orange">单志才 (CEO):</strong> 行业知名监察审计专家，原大型企业监察部长。</p>
+                <p><strong class="highlight-orange">刘中文:</strong> 律师，原检察官，擅长刑事控告、商业秘密保护。</p>
+            </div>
+        </div>
+
+        <div class="bento-item sm:col-span-2 lg:col-span-2 lg:row-span-2 flex flex-col justify-between bg-highlight-orange-gradient" data-motion-id="bento-item-6">
+            <div>
+                <i class="fas fa-briefcase icon-outline mb-4"></i>
+                <h2 class="text-2xl font-bold mb-2">成功<span class="highlight-orange">案例</span></h2>
+                <p class="text-sm text-gray-400 mb-4 uppercase">SUCCESSFUL CASES</p>
+                <p class="text-lg font-semibold mb-2 highlight-orange">案例亮点：贸易公司职务侵占/虚开专票案</p>
+                <p class="text-gray-300 text-base mb-4">
+                    负责人利用职务之便，虚增交易环节，底价采购后销售。同时存在虚开增值税专用发票行为。
+                </p>
+            </div>
+            <div class="mt-auto text-center">
+                 <div class="text-super-large highlight-orange">6000<span class="text-4xl">万+</span></div>
+                 <p class="text-lg font-bold mt-1">涉案金额</p>
+                 <p class="text-xs text-gray-400 uppercase">CASE VALUE EXCEEDING 60M</p>
+                 <p class="text-sm text-gray-300 mt-3"><i class="fas fa-user-times mr-1"></i>多人被刑事拘留</p>
+            </div>
+        </div>
+
+        <div class="bento-item sm:col-span-2 lg:col-span-2" data-motion-id="bento-item-7">
+            <i class="fas fa-handshake icon-outline mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">服务<span class="highlight-orange">承诺</span></h2>
+            <p class="text-sm text-gray-400 mb-4 uppercase">SERVICE COMMITMENT</p>
+            <ul class="list-none space-y-3 text-gray-300">
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle highlight-orange mt-1 mr-2"></i>
+                    <span><strong class="highlight-orange">免费体检:</strong> 前期不成功不收费。</span>
+                </li>
+                 <li class="flex items-start">
+                    <i class="fas fa-shield-halved highlight-orange mt-1 mr-2"></i>
+                    <span><strong class="highlight-orange">绝对保密:</strong> 不接触敏感信息，保护甲方隐私。</span>
+                </li>
+                 <li class="flex items-start">
+                    <i class="fas fa-balance-scale highlight-orange mt-1 mr-2"></i>
+                    <span><strong class="highlight-orange">尊重决策:</strong> 调查结果由甲方决定如何处理。</span>
+                </li>
+            </ul>
+             <p class="text-sm text-gray-500 mt-4 italic">恪守职业操守，助力企业发展。</p>
+        </div>
+
+        <div class="bento-item sm:col-span-2 lg:col-span-2 flex flex-col items-center justify-center text-center" data-motion-id="bento-item-8">
+             <i class="fas fa-phone-alt icon-outline mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">联系<span class="highlight-orange">我们</span></h2>
+            <p class="text-sm text-gray-400 mb-4 uppercase">CONTACT US</p>
+            <p class="text-3xl font-bold highlight-orange mb-2">134 6777 7737</p>
+            <p class="text-gray-300 mb-4">长沙问道企业管理有限公司</p>
+            <p class="text-gray-400 text-sm">地址: 湖南长沙</p>
+            <div class="mt-4 text-gray-500">
+                <i class="fab fa-weixin text-4xl"></i>
+                <p class="text-xs mt-1">扫码添加微信 (Scan QR for WeChat)</p>
+            </div>
+        </div>
+
+        <div class="bento-item sm:col-span-1 lg:col-span-1 flex flex-col items-center justify-center text-center" data-motion-id="bento-item-9">
+             <i class="fas fa-hotel icon-outline mb-3"></i>
+             <p class="text-base font-semibold highlight-orange">案例二</p>
+             <p class="text-xs text-gray-400 uppercase">HOTEL GROUP CASE</p>
+             <p class="text-sm text-gray-300 mt-2">酒店集团员工职务侵占、受贿窝案</p>
+         </div>
+         <div class="bento-item sm:col-span-1 lg:col-span-1 flex flex-col items-center justify-center text-center" data-motion-id="bento-item-10">
+             <i class="fas fa-microchip icon-outline mb-3"></i>
+             <p class="text-base font-semibold highlight-orange">案例四</p>
+             <p class="text-xs text-gray-400 uppercase">TECH COMPANY CASE</p>
+             <p class="text-sm text-gray-300 mt-2">科技公司技术秘密被侵犯案 (省十佳案例)</p>
+         </div>
+
+    </main>
+
+    <footer class="text-center py-8 px-4 mt-12 border-t border-gray-800">
+        <p class="text-gray-500 text-sm">&copy; 2025 长沙问道企业管理有限公司. All Rights Reserved.</p>
+         <p class="text-xs text-gray-600 mt-1">诚信 | 高效 | 专业</p>
+    </footer>
+
+    <script>
+        // ** 改动: 使用 window.onload 替代 DOMContentLoaded **
+        // 确保在包括脚本在内的所有资源加载完成后执行
+        window.onload = () => {
+            // 检查 motion 对象是否存在
+            if (typeof motion === 'undefined') {
+                console.error('Framer Motion library not loaded correctly.');
+                // 如果库未加载，停止执行后续动画代码
+                // 可以考虑在此处添加一些用户提示或回退机制
+                // Hide elements meant to be animated if library fails
+                 document.querySelectorAll('.bento-item, .header-content, .header-bg-gradient').forEach(el => {
+                     el.style.opacity = '1'; // Make them visible without animation
+                     el.style.transform = 'none'; // Reset transform
+                 });
+                return;
+            }
+
+            // 从 motion 中解构需要的函数 (现在可以安全使用 motion)
+            const { animate } = motion;
+
+            // --- Header Animation ---
+            // Animate background gradient
+            animate('.header-bg-gradient',
+                { opacity: 1, y: 0 }, // Target state
+                { duration: 0.8, ease: "easeOut" } // Transition options
+            );
+
+            // Animate header content
+            animate('.header-content',
+                { opacity: 1, scale: 1 },
+                { duration: 0.8, delay: 0.2, ease: "easeOut" }
+            );
+
+
+            // --- Bento Grid Item Animation ---
+            // 选择所有 bento-item 元素
+            const items = document.querySelectorAll('.bento-item');
+
+            // --- Intersection Observer for Scroll-Triggered Animations ---
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const item = entry.target;
+                        const index = Array.from(items).indexOf(item); // Get index for stagger
+
+                        // 定义目标状态
+                        const targetState = { opacity: 1, y: 0 };
+                        const scaleItems = ['bento-item-2', 'bento-item-3', 'bento-item-6'];
+                        let initialTransform = 'translateY(20px)'; // Default initial transform
+
+                        if (scaleItems.includes(item.dataset.motionId)) {
+                             targetState.scale = 1;
+                             initialTransform = 'translateY(20px) scale(0.8)'; // Initial transform for scale items
+                             // Ensure initial style is applied before animation starts if not already
+                             if (item.style.transform !== initialTransform) {
+                                 item.style.transform = initialTransform;
+                             }
+                             // Animate from initial state set in CSS/JS
+                             animate(item, targetState, {
+                                 delay: index * 0.05, // Stagger effect
+                                 duration: 0.5,
+                                 ease: 'easeOut'
+                             });
+                        } else {
+                             // Ensure initial style is applied before animation starts if not already
+                             if (item.style.transform !== initialTransform) {
+                                  item.style.transform = initialTransform;
+                             }
+                             // Animate from initial state set in CSS
+                             animate(item, targetState, {
+                                 delay: index * 0.05, // Stagger effect
+                                 duration: 0.5,
+                                 ease: 'easeOut'
+                             });
+                        }
+
+                        // 动画触发后停止观察该元素
+                        obs.unobserve(item);
+                    }
+                });
+            }, {
+                threshold: 0.3, // 元素可见 30% 时触发
+            });
+
+            // 让 observer 观察所有 bento items
+            items.forEach(item => {
+                // Apply initial scale for specific items here as well
+                const scaleItems = ['bento-item-2', 'bento-item-3', 'bento-item-6'];
+                 if (scaleItems.includes(item.dataset.motionId)) {
+                     item.style.transform = 'translateY(20px) scale(0.8)';
+                 }
+                observer.observe(item);
+            });
+
+
+            // Add smooth scrolling if desired (保持不变)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            console.log("Framer Motion animations applied via JS API after window.onload.");
+        }; // End of window.onload
+
+    </script>
+
+</body>
+</html>
